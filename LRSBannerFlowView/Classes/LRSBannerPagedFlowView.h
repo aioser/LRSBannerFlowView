@@ -3,7 +3,7 @@
 #import "LRSBannerPageFlowCellProtocol.h"
 
 @protocol LRSBannerPageFlowDataSource;
-@protocol LRSBannerPageFlowViewDelegate;
+@protocol LRSBannerPageFlowDelegate;
 
 
 typedef NS_ENUM(NSUInteger, LRSBannerPagedFlowViewOrientation) {
@@ -34,7 +34,7 @@ typedef NS_ENUM(NSUInteger, LRSBannerPagedFlowViewOrientation) {
 @property (nonatomic,strong) NSMutableArray *reusableCells;
 
 @property (nonatomic,weak)   id <LRSBannerPageFlowDataSource> dataSource;
-@property (nonatomic,weak)   id <LRSBannerPageFlowViewDelegate>   delegate;
+@property (nonatomic,weak)   id <LRSBannerPageFlowDelegate>   delegate;
 
 /**
  *  指示器
@@ -98,11 +98,6 @@ typedef NS_ENUM(NSUInteger, LRSBannerPagedFlowViewOrientation) {
  */
 - (UIView<LRSBannerPageFlowCellProtocol> *)dequeueReusableCell;
 
-/**
- *  滚动到指定的页面
- *
- *  @param pageNumber
- */
 - (void)scrollToPage:(NSInteger)pageNumber;
 
 /**
@@ -121,7 +116,7 @@ typedef NS_ENUM(NSUInteger, LRSBannerPagedFlowViewOrientation) {
 @end
 
 
-@protocol  LRSBannerPageFlowViewDelegate<NSObject>
+@protocol  LRSBannerPageFlowDelegate<NSObject>
 
 @optional
 

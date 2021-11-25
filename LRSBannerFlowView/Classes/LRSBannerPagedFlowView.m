@@ -100,12 +100,12 @@ static NSString *subviewClassName;
     
     
     switch (self.orientation) {
-        case NewPagedFlowViewOrientationHorizontal:{
+        case LRSBannerPagedFlowViewHorizontal:{
             
             [_scrollView setContentOffset:CGPointMake(self.page * _pageSize.width, 0) animated:YES];
             break;
         }
-        case NewPagedFlowViewOrientationVertical:{
+        case LRSBannerPagedFlowViewVertical:{
             
             [_scrollView setContentOffset:CGPointMake(0, self.page * _pageSize.height) animated:YES];
             
@@ -142,7 +142,7 @@ static NSString *subviewClassName;
         return;//无需更新
     }
     switch (self.orientation) {
-        case NewPagedFlowViewOrientationHorizontal:{
+        case LRSBannerPagedFlowViewHorizontal:{
             CGFloat offset = _scrollView.contentOffset.x;
             
             for (NSInteger i = self.visibleRange.location; i < self.visibleRange.location + _visibleRange.length; i++) {
@@ -181,7 +181,7 @@ static NSString *subviewClassName;
             }
             break;
         }
-        case NewPagedFlowViewOrientationVertical:{
+        case LRSBannerPagedFlowViewVertical:{
             CGFloat offset = _scrollView.contentOffset.y;
             
             for (NSInteger i = self.visibleRange.location; i < self.visibleRange.location + _visibleRange.length; i++) {
@@ -235,10 +235,10 @@ static NSString *subviewClassName;
             cell.tag = pageIndex % self.orginPageCount;
             
             switch (self.orientation) {
-                case NewPagedFlowViewOrientationHorizontal:
+                case LRSBannerPagedFlowViewHorizontal:
                     cell.frame = CGRectMake(_pageSize.width * pageIndex, 0, _pageSize.width, _pageSize.height);
                     break;
-                case NewPagedFlowViewOrientationVertical:
+                case LRSBannerPagedFlowViewVertical:
                     cell.frame = CGRectMake(0, _pageSize.height * pageIndex, _pageSize.width, _pageSize.height);
                     break;
                 default:
@@ -260,7 +260,7 @@ static NSString *subviewClassName;
     
     
     switch (self.orientation) {
-        case NewPagedFlowViewOrientationHorizontal:{
+        case LRSBannerPagedFlowViewHorizontal:{
             NSInteger startIndex = 0;
             for (int i =0; i < [_cells count]; i++) {
                 if (_pageSize.width * (i +1) > startPoint.x) {
@@ -298,7 +298,7 @@ static NSString *subviewClassName;
             }
             break;
         }
-        case NewPagedFlowViewOrientationVertical:{
+        case LRSBannerPagedFlowViewVertical:{
             NSInteger startIndex = 0;
             for (int i =0; i < [_cells count]; i++) {
                 if (_pageSize.height * (i +1) > startPoint.y) {
@@ -435,7 +435,7 @@ static NSString *subviewClassName;
         
         // 重置_scrollView的contentSize
         switch (self.orientation) {
-            case NewPagedFlowViewOrientationHorizontal://横向
+            case LRSBannerPagedFlowViewHorizontal://横向
                 _scrollView.frame = CGRectMake(0, 0, _pageSize.width, _pageSize.height);
                 _scrollView.contentSize = CGSizeMake(_pageSize.width * _pageCount,_pageSize.height);
                 CGPoint theCenter = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
@@ -464,7 +464,7 @@ static NSString *subviewClassName;
                 }
                 
                 break;
-            case NewPagedFlowViewOrientationVertical:{
+            case LRSBannerPagedFlowViewVertical:{
                 _scrollView.frame = CGRectMake(0, 0, _pageSize.width, _pageSize.height);
                 _scrollView.contentSize = CGSizeMake(_pageSize.width ,_pageSize.height * _pageCount);
                 CGPoint theCenter = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
@@ -533,10 +533,10 @@ static NSString *subviewClassName;
         }
         
         switch (self.orientation) {
-            case NewPagedFlowViewOrientationHorizontal:
+            case LRSBannerPagedFlowViewHorizontal:
                 [_scrollView setContentOffset:CGPointMake(_pageSize.width * self.page, 0) animated:YES];
                 break;
-            case NewPagedFlowViewOrientationVertical:
+            case LRSBannerPagedFlowViewVertical:
                 [_scrollView setContentOffset:CGPointMake(0, _pageSize.height * self.page) animated:YES];
                 break;
         }
@@ -577,7 +577,7 @@ static NSString *subviewClassName;
     NSInteger pageIndex;
     
     switch (self.orientation) {
-        case NewPagedFlowViewOrientationHorizontal:
+        case LRSBannerPagedFlowViewHorizontal:
             pageIndex = (int)round(_scrollView.contentOffset.x / _pageSize.width) % self.orginPageCount;
             break;
         case     LRSBannerPagedFlowViewVertical:
@@ -591,7 +591,7 @@ static NSString *subviewClassName;
         
         if (self.orginPageCount > 1) {
             switch (self.orientation) {
-                case NewPagedFlowViewOrientationHorizontal:
+                case LRSBannerPagedFlowViewHorizontal:
                 {
                     if (scrollView.contentOffset.x / _pageSize.width >= 2 * self.orginPageCount) {
                         
@@ -666,7 +666,7 @@ static NSString *subviewClassName;
     if (self.orginPageCount > 1 && self.isOpenAutoScroll && self.isCarousel) {
         [self startTimer];
         switch (self.orientation) {
-            case NewPagedFlowViewOrientationHorizontal:
+            case LRSBannerPagedFlowViewHorizontal:
             {
                 if (self.page == floor(_scrollView.contentOffset.x / _pageSize.width)) {
                     
