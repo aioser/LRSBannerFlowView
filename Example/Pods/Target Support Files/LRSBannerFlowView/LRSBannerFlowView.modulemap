@@ -1,0 +1,6 @@
+framework module LRSBannerFlowView {
+  umbrella header "LRSBannerFlowView-umbrella.h"
+
+  export *
+  module * { export * }
+}

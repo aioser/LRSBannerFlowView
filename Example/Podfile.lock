@@ -1,0 +1,16 @@
+PODS:
+  - LRSBannerFlowView (0.1.0)
+
+DEPENDENCIES:
+  - LRSBannerFlowView (from `../`)
+
+EXTERNAL SOURCES:
+  LRSBannerFlowView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LRSBannerFlowView: a7bf420b79501d9c4b824815ed036e87a0dbcf69
+
+PODFILE CHECKSUM: 59e63ac8379c25852a2761b7b06097d390b79bcc
+
+COCOAPODS: 1.10.2
